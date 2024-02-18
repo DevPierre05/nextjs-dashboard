@@ -20,9 +20,9 @@ export default function EditInvoiceForm({
   customers: CustomerField[];
 }) {
   const initialState = { message: null, errors: {} };
-  const [state, dispatch] = useFormState(updateInvoice, initialState);
+  const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);
+  const [state, dispatch] = useFormState(updateInvoiceWithId, initialState);
 
-  console.log(state);
 
   // const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);
   //This wont work on the server updateInvoice(id)
